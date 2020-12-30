@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: minland
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 30000
       targetPort: 30000
