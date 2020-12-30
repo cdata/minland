@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minland
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: minland
+  template:
+    metadata:
+      labels:
+        app: minland
+    spec:
+      containers:
+        - image: registry.digitalocean.com/hyper-gambit-registry/minland:latest
+          name: minland
+          ports:
+            - containerPort: 30000
