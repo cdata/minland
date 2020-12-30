@@ -18,3 +18,4 @@ spec:
           name: minland
           ports:
             - containerPort: 30000
+              protocol: UDP
