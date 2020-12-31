@@ -14,7 +14,7 @@ spec:
         app: minland
     spec:
       containers:
-        - image: registry.digitalocean.com/hyper-gambit-registry/minland:latest
+        - image: gcr.io/minland-gcp/minland:latest
           name: minland
           ports:
             - containerPort: 30000
