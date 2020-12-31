@@ -14,7 +14,7 @@ spec:
         app: minland
     spec:
       containers:
-        - image: gcr.io/minland-gcp/minland:latest
+        - image: gcr.io/minland-gcp/minland:test
           name: minland
           ports:
             - containerPort: 30000
