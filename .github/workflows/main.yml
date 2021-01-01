@@ -17,6 +17,9 @@ jobs:
           export_default_credentials: true
       - run: gcloud info
       - run: gcloud --verbosity debug builds submit --tag gcr.io/minland-gcp/minland:$GITHUB_SHA
+      - run: |
+          git fetch origin prod
+          git checkout --track origin/prod
       - run: sed -i 's/gcr\.io\/minland-gcp\/minland:.*$/gcr\.io\/minland-gcp\/minland:'"$GITHUB_SHA"'/' ./k8s/minland-deployment.yaml
       - run: |
           git config --local user.email "action@github.com"
@@ -27,4 +30,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: prod
-          force: true
