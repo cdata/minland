@@ -27,10 +27,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "$commit_message \
+          \
           Update Minland container image tag" -a
+        env:
+          - commit_message: $commit_message
       - name: Push changes to deploy branch
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: prod
-          force: true
