@@ -16,7 +16,7 @@ jobs:
           service_account_key: ${{ secrets.GCP_SA_KEY }}
           export_default_credentials: true
       - run: gcloud info
-      - run: gcloud builds submit --tag gcr.io/minland-gcp/minland:$GITHUB_SHA
+      - run: gcloud --verbosity debug builds submit --tag gcr.io/minland-gcp/minland:$GITHUB_SHA
       - run: sed -i 's/gcr\.io\/minland-gcp\/minland:.*$/gcr\.io\/minland-gcp\/minland:'"$GITHUB_SHA"'/' ./k8s/minland-deployment.yaml
       - run: |
           git config --local user.email "action@github.com"
