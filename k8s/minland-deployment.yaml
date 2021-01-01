@@ -19,3 +19,11 @@ spec:
           ports:
             - containerPort: 30000
               protocol: UDP
+          volumeMounts:
+            - mountPath: /config/minland/.minetest/worlds/world
+              name: minland-world-state
+          restartPolicy: Always
+          volumes:
+            - name: minland-world-state
+              persistentVolumeClaim:
+                claimName: minland-world-state

@@ -13,3 +13,4 @@ RUN \
 ADD minetest /config/minland/.minetest
 
 EXPOSE 30000/udp
+VOLUME /config/minland/.minetest/worlds/world
