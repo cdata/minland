@@ -13,6 +13,11 @@ spec:
       labels:
         app: minland
     spec:
+      restartPolicy: Always
+      volumes:
+        - name: minland-world-state
+          persistentVolumeClaim:
+            claimName: minland-world-state
       containers:
         - image: gcr.io/minland-gcp/minland:test
           name: minland
@@ -22,8 +27,3 @@ spec:
           volumeMounts:
             - mountPath: /config/minland/.minetest/worlds/world
               name: minland-world-state
-          restartPolicy: Always
-          volumes:
-            - name: minland-world-state
-              persistentVolumeClaim:
-                claimName: minland-world-state
