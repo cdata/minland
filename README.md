@@ -14,20 +14,27 @@ For a minimal work setup, you will need to install:
 - [Docker][3]
 - The [Minetest][4] client
 
-To build the Minland docker image:
+To build and run the Minland docker image:
 
 ```shell
-docker build -t minland ./
-```
-
-To run the Minland server locally:
-
-```shell
-docker run -p 30000:30000/udp minland
+./scripts/dev.sh
 ```
 
 Then, you should be able to connect to the server in your Minetest client using
 address `0.0.0.0` and port `3000`.
+
+## Project structure
+
+- `k8s` - Kubernetes resource definition files for Minland infrastructure
+- `argo` - Argo application definitions that drive git-based k8s automation
+- `minetest` - Static configuration for the Minetest server that powers Minland, including third-party mods
+- `minland` - Umbrella directory for all Minland-specific source trees, including first-party mods and adjacent infrastructure
+- `scripts` - Scripts to aid in building Minland
+
+Minetest requires that loaded mods me enumerated in a world configuration
+file. Currently, this file lives at `minetest/worlds/world/world.mt`. If
+you create a mode (or add a third-party mod), you need to add a corresponding
+entry in `world.mt`.
 
 ## Infrastructure
 

@@ -10,7 +10,7 @@ RUN \
   sed -i 's/config\/\.minetest/config\/minland\/\.minetest/g' /etc/services.d/minetest/run
   
 
-ADD minetest /config/minland/.minetest
+ADD dist/minetest /config/minland/.minetest
 
 EXPOSE 30000/udp
 VOLUME /config/minland/.minetest/worlds/world

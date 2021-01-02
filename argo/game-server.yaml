@@ -1,0 +1,13 @@
+project: minland
+source:
+  repoURL: 'https://github.com/cdata/minland.git'
+  path: k8s
+  targetRevision: prod
+  directory:
+    recurse: true
+destination:
+  namespace: minland
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true

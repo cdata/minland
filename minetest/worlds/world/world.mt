@@ -18,3 +18,4 @@ load_mod_player_monoids = true
 load_mod_3d_armor_ip = true
 load_mod_mobkit = true
 load_mod_3d_armor_sfinv = true
+load_mod_test_mod = true
