@@ -31,10 +31,11 @@ jobs:
       - env:
           commit_message: $commit_message
         run: |
-          git commit -m "$(commit_message) \
+          git commit -m "$commit_message \
           Update Minland container image tag" -a
       - name: Push changes to deploy branch
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: prod
+          force: true
