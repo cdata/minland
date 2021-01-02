@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: google-github-actions/setup-gcloud@master
         with:
           version: '321.0.0'
@@ -19,7 +21,6 @@ jobs:
       - run: gcloud builds submit --tag gcr.io/minland-gcp/minland:$GITHUB_SHA
       - run: echo "{commit_message}={`git log -1 --pretty=%B`}" >> $GITHUB_ENV
       - run: |
-          git fetch origin
           git checkout --track origin/prod
           git rebase origin/main
       - run: sed -i 's/gcr\.io\/minland-gcp\/minland:.*$/gcr\.io\/minland-gcp\/minland:'"$GITHUB_SHA"'/' ./k8s/minland-deployment.yaml
