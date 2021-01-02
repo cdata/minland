@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+sed -i \
+  "s/load_mod_\(.*\) = false$/load_mod_\1 = true/g" \
+  /config/minland/.minetest/worlds/world/world.mt

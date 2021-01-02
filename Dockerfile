@@ -9,6 +9,7 @@ RUN \
   sed -i 's/config\/\.minetest/config\/minland\/\.minetest/g' /etc/cont-init.d/30-config && \
   sed -i 's/config\/\.minetest/config\/minland\/\.minetest/g' /etc/services.d/minetest/run
   
+COPY image /
 
 ADD dist/minetest /config/minland/.minetest
 

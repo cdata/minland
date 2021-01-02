@@ -30,6 +30,7 @@ address `0.0.0.0` and port `3000`.
 - `minetest` - Static configuration for the Minetest server that powers Minland, including third-party mods
 - `minland` - Umbrella directory for all Minland-specific source trees, including first-party mods and adjacent infrastructure
 - `scripts` - Scripts to aid in building Minland
+- `image` - Static root file system structure to overlay onto the image
 
 Minetest requires that loaded mods me enumerated in a world configuration
 file. Currently, this file lives at `minetest/worlds/world/world.mt`. If
