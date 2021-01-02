@@ -19,7 +19,7 @@ spec:
           persistentVolumeClaim:
             claimName: minland-world-state
       containers:
-        - image: gcr.io/minland-gcp/minland:5dd86b0bf95245a44fc426176568e369328205da
+        - image: gcr.io/minland-gcp/minland:cbd74fc1e45c03e501afef43e51dd7a42db54109
           name: minland
           ports:
             - containerPort: 30000
