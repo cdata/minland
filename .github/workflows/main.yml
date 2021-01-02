@@ -22,15 +22,16 @@ jobs:
       - run: gcloud builds submit --tag gcr.io/minland-gcp/minland:$GITHUB_SHA
       - run: echo "{commit_message}={`git log -1 --pretty=%B`}" >> $GITHUB_ENV
       - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - run: |
           git checkout --track origin/prod
           git rebase origin/main
       - run: sed -i 's/gcr\.io\/minland-gcp\/minland:.*$/gcr\.io\/minland-gcp\/minland:'"$GITHUB_SHA"'/' ./k8s/minland-deployment.yaml
       - env:
           commit_message: $commit_message
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "$commit_message \
+          git commit -m "$(commit_message) \
           Update Minland container image tag" -a
       - name: Push changes to deploy branch
         uses: ad-m/github-push-action@master
